@@ -14,7 +14,7 @@ env:
 
 jobs:
   build-add-push:
-  runs-on: debian-latest
+    runs-on: debian-latest
 
     steps:
       - name: Checkout
