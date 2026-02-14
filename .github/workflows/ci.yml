@@ -11,22 +11,22 @@ permissions:
   packages: write
 
 jobs:
-helm-check:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+  helm-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup Helm
-      uses: azure/setup-helm@v4
-      with:
-        version: v3.15.4
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.15.4
 
-    - name: Helm lint
-      run: helm lint helm/myapp
+      - name: Helm lint
+        run: helm lint helm/myapp
 
-    - name: Helm template (dev)
-      run: helm template myapp helm/myapp -f helm/myapp/values-dev.yaml > /dev/null
+      - name: Helm template (dev)
+        run: helm template myapp helm/myapp -f helm/myapp/values-dev.yaml > /dev/null
 
   build-add-push:
     runs-on: ubuntu-latest
